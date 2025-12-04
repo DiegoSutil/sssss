@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,13 @@
 <body>
     <header>
         <div class="primeiro-menu">
-            <i class="fa-solid fa-bars"></i>
-            <img src="https://omnilogic.com.br/midia/logos/23.png" alt="">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <a href="#"><i class="fa-solid fa-bars"></i></a>
+            <a href="#"><img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logotipo Magalu"></a>
+            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
         </div>
         <div class="busca">
             <input type="text" id="txtBusca" placeholder="Procure no Magalu"/>
+            <i class="fa-solid fa-magnifying-glass busca-icon"></i>
         </div>
         </header>
         <hr>
@@ -24,7 +26,9 @@
         <div class="produto">
             <img src="https://imgs.casasbahia.com.br/55014771/1xg.jpg" alt="Produto">
         </div>
-            <h2>iPhone 11 Apple 128GB - Branco<br>Tela 6,1” 12MP iOS</h2>
+            <a href="#">
+                <h2>iPhone 11 Apple 128GB - Branco<br>Tela 6,1” 12MP iOS</h2>
+            </a>
         <div class="avaliacao">  
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -34,7 +38,7 @@
             <p>4.8 (146)</p>
         </div>  
         <div class="preco">
-            <p><s>R$ 3.999,99</s></p>
+            <p><del>R$ 3.999,99</del></p>
             <h3>R$ 2.499,00</h3>
             <p>à vista (5% de desconto)</p> 
         </div>
@@ -54,7 +58,7 @@
             </div>
         </div>
         <div class="comprar">
-            <button>COMPRAR AGORA</button>  
+            <button class="botao-comprar">COMPRAR AGORA</button>  
         </div>
     </main>    
 </body>
