@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magalu - Checkout</title>
+    <!-- Incluindo Font Awesome para ícones -->
+    <script src="https://kit.fontawesome.com/af7678e83f.js" crossorigin="anonymous"></script>
+    <!-- Usando o CSS de checkout separado para os estilos (caminho relativo) -->
+    <link rel="stylesheet" href="../css/checkout.css"> 
+</head>
+<body>
+
+    <header class="magalu-blue">
+        <div class="checkout-header">
+            <!-- Logo Magalu com link para a home (index.html na raiz) -->
+            <a href="../index.html">
+                <img src="https://omnilogic.com.br/midia/logos/23.png" alt="Logo Magalu" class="logo-magalu">
+            </a>
+            <!-- Link para voltar ao produto -->
+            <a href="../index.html" class="text-white text-sm font-semibold hover:underline">
+                Voltar à página do produto
+            </a>
+        </div>
+    </header>
+
+    <main class="checkout-container">
+
+        <!-- Barra de Etapas do Checkout -->
+        <div class="step-bar">
+            <!-- Etapa 1: Sacola (Completa - ícone verde) -->
+            <div class="step-item text-green-600">
+                <div class="icon bg-green-600 border-green-600 text-white">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                Sacola
+            </div>
+            <!-- Etapa 2: Identificação (Ativa - ícone azul) -->
+            <div class="step-item active">
+                <div class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                Identificação
+            </div>
+            <!-- Etapa 3: Entrega (Próxima) -->
+            <div class="step-item">
+                <div class="icon">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
+                Entrega
+            </div>
+            <!-- Etapa 4: Pagamento -->
+            <div class="step-item">
+                <div class="icon">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                Pagamento
+            </div>
+        </div>
+
+        <h2 class="section-title">Identificação</h2>
+
+        <div class="identification-grid">
+            
+            <!-- Coluna 1: Quero criar uma conta -->
+            <div class="form-box">
+                <h3 class="text-blue-600">Quero criar uma conta</h3>
+                <!-- Alterado alert() para um console.log e uma modal simulada -->
+                <form onsubmit="handleNewAccountSubmission(); return false;">
+                    <label for="new-email" class="form-label">E-mail</label>
+                    <input type="email" id="new-email" placeholder="Digite seu e-mail" required class="form-input mb-4">
+                    <button type="submit" class="btn-continue">Continuar</button>
+                </form>
+                <a href="#" class="small-link text-gray-500">Dúvidas? <span class="text-blue-600 hover:underline">Fale conosco</span></a>
+            </div>
+
+            <!-- Coluna 2: Já sou cliente -->
+            <div class="form-box">
+                <h3 class="text-blue-600">Já sou cliente</h3>
+                 <!-- Alterado alert() para um console.log e uma modal simulada -->
+                 <form onsubmit="handleLoginSubmission(); return false;">
+                    
+                    <label for="login-email" class="form-label">E-mail, CPF ou CNPJ</label>
+                    <input type="text" id="login-email" placeholder="Digite seu e-mail, CPF ou CNPJ" required class="form-input mb-4">
+
+                    <label for="login-password" class="form-label">Senha</label>
+                    <div class="password-input-container mb-4">
+                        <input type="password" id="login-password" placeholder="Digite sua senha" required class="form-input">
+                        <i class="fa-regular fa-eye password-toggle-icon" onclick="togglePasswordVisibility('login-password')"></i>
+                    </div>
+
+                    <button type="submit" class="btn-continue">Continuar</button>
+                </form>
+                <a href="#" class="small-link text-red-600">Esqueci minha senha</a>
+            </div>
+        </div>
+        
+        <!-- Redes Sociais e Rodapé de Segurança -->
+        <div class="social-login">
+            <p>Use sua rede social para se conectar</p>
+            <a href="#" class="google-button" onclick="showSecurityModal('Google'); return false;">
+                <!-- Ícone Google SVG (Para evitar dependências) -->
+                <svg viewBox="0 0 48 48" class="google-icon" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M43.61 24c0-1.42-.12-2.8-.35-4.1H24v7.75h10.94c-.45 2.53-2.09 4.67-4.66 6.13v5.04h6.52c3.81-3.52 6.01-8.77 6.01-15.02z" fill="#4285F4"/><path d="M24 44c5.17 0 9.77-1.7 13.02-4.6l-6.52-5.04c-1.81 1.22-4.13 1.95-6.5 1.95-5 0-9.2-3.34-10.74-7.91H6.7v5.22C9.9 39.54 16.3 44 24 44z" fill="#34A853"/><path d="M13.26 27.91c-.34-1.01-.54-2.11-.54-3.91s.2-2.9.54-3.91V14.86H6.7C5.4 17.56 4.75 20.67 4.75 24s.65 6.44 1.95 9.14l6.56-5.23z" fill="#FBBC05"/><path d="M24 12.06c2.72 0 5.16 1.05 7.08 2.8l5.81-5.81C33.77 4.96 28.17 2 24 2c-7.7 0-14.1 4.46-17.3 11.14l6.56 5.23c1.54-4.57 5.74-7.91 10.74-7.91z" fill="#EA4335"/></svg>
+                Fazer login
+            </a>
+        </div>
+
+        <p class="security-footer">
+            Seus dados pessoais serão respeitados de acordo com a nossa <a href="#">política de privacidade</a>. *Serviço válido somente para pessoas físicas<br>
+            Em caso de dúvidas, acesse nossa <a href="#">central de atendimento</a>
+        </p>
+
+    </main>
+
+    <!-- Modal de Confirmação Personalizada (Substitui alert()) -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-xl shadow-2xl w-11/12 md:w-1/3 transition-transform transform scale-95 md:scale-100">
+            <h3 class="text-xl font-bold mb-4 text-blue-600" id="modalTitle">Sucesso!</h3>
+            <p class="text-gray-700 mb-6" id="modalMessage">Simulação: Próximo passo: Entrega</p>
+            <button onclick="closeCheckoutModal()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition duration-150">Avançar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar/esconder a senha
+        function togglePasswordVisibility(id) {
+            const input = document.getElementById(id);
+            const icon = input.nextElementSibling; // O ícone de olho
+
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove('fa-regular', 'fa-eye');
+                icon.classList.add('fa-solid', 'fa-eye-slash');
+            } else {
+                input.type = "password";
+                icon.classList.remove('fa-solid', 'fa-eye-slash');
+                icon.classList.add('fa-regular', 'fa-eye');
+            }
+        }
+        
+        // Funções da Modal Personalizada (para substituir alert())
+        function showCheckoutModal(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        // Simulação de submissão do formulário de Nova Conta
+        function handleNewAccountSubmission() {
+            const email = document.getElementById('new-email').value;
+            console.log(`Simulação: Criar conta com email: ${email}`);
+            showCheckoutModal('Próximo Passo', 'Simulação: Conta criada com sucesso! Você será redirecionado para a etapa de Entrega.');
+        }
+
+        // Simulação de submissão do formulário de Login
+        function handleLoginSubmission() {
+            const identifier = document.getElementById('login-email').value;
+            console.log(`Simulação: Login com identificador: ${identifier}`);
+            showCheckoutModal('Login Concluído', 'Simulação: Login realizado com sucesso! Você será redirecionado para a etapa de Entrega.');
+        }
+
+        // Simulação de Login Social
+        function showSecurityModal(provider) {
+             showCheckoutModal('Login Social (Simulação)', `Simulação: Tentativa de login via ${provider}. Você seria redirecionado para autenticação e depois para a etapa de Entrega.`);
+        }
+    </script>
+</body>
+</html>
